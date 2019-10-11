@@ -23,9 +23,7 @@ public class ProfileTest {
     // Test null list throws exception
     public void testConstructorWithNullList() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            List<Grade> grades = null;
-
-            new Profile(grades);
+            new Profile(null);
         });
     }
 
