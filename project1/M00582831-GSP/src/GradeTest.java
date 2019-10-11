@@ -1,16 +1,10 @@
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
-import org.junit.runners.Parameterized.Parameter;
-
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(Parameterized.class)
 public class GradeTest {
     @Test
     // Test point below range throws exception
@@ -92,42 +86,33 @@ public class GradeTest {
         });
     }
 
-    @Parameters
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] {
-                {-1, 20},
-                {0, 19},
-                {30, 18},
-                {35, 17},
-                {40, 16},
-                {42, 15},
-                {45, 14},
-                {47, 13},
-                {50, 12},
-                {52, 11},
-                {55, 10},
-                {57, 9},
-                {60, 8},
-                {62, 7},
-                {65, 6},
-                {67, 5},
-                {70, 4},
-                {73, 3},
-                {76, 2},
-                {79, 1},
-        });
-    }
-
-    @Parameter(0)
-    public int percentage;
-
-    @Parameter(1)
-    public int point;
-
-    @Test
+    @ParameterizedTest
+    @CsvSource({
+            "-1, 20",
+            "0, 19",
+            "30, 18",
+            "35, 17",
+            "40, 16",
+            "42, 15",
+            "45, 14",
+            "47, 13",
+            "50, 12",
+            "52, 11",
+            "55, 10",
+            "57, 9",
+            "60, 8",
+            "62, 7",
+            "65, 6",
+            "67, 5",
+            "70, 4",
+            "73, 3",
+            "76, 2",
+            "79, 1"
+    })
     // Test fromPercentage returns the correct point
-    public void testFromPercentage() {
-        Grade grade = Grade.fromPercentage(percentage);
-        assertEquals(point, grade.getPoints());
+    public void testFromPercentage(String percentage, String point) {
+        Grade grade = Grade.fromPercentage(Integer.parseInt(percentage));
+
+        assertEquals(Integer.parseInt(point), grade.getPoints());
     }
 }
