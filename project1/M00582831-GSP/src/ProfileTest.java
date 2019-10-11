@@ -105,7 +105,7 @@ public class ProfileTest {
     @ParameterizedTest
     @CsvSource({"1, 1, 1, 1, true", "1, 1, 16, 16, false"})
     // Test isClear returns the correct truth value
-    public void isClear(String grade1, String grade2, String grade3, String grade4, String expectedResult) {
+    public void testIsClear(String grade1, String grade2, String grade3, String grade4, String expectedResult) {
         List<Grade> grades = new ArrayList<>();
 
         grades.add(new Grade(Integer.parseInt(grade1)));
