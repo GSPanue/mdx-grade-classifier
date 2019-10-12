@@ -9,7 +9,7 @@ public class Profile {
 	private double thirdClassPercentage;
 
 	public Profile(List<Grade> grades) {
-		final boolean SHOULD_THROW_EXCEPTION = isNull(grades) || isEmpty(grades) || hasFailGrade(grades);
+		final boolean SHOULD_THROW_EXCEPTION = isNull(grades) || isEmpty(grades) || containsFailGrade(grades);
 
 		// Throw exception when list is null, empty, or has fail grade
 		if (SHOULD_THROW_EXCEPTION) {
@@ -30,17 +30,17 @@ public class Profile {
 		return grades.isEmpty();
 	}
 
-	private boolean hasFailGrade(List<Grade> grades) {
-		boolean hasFailGrade = false;
+	private boolean containsFailGrade(List<Grade> grades) {
+		boolean containsFailGrade = false;
 
 		// Find fail grade in list of grades
 		for (Grade grade : grades) {
 			if (grade.classify() == Classification.Fail) {
-				hasFailGrade = true;
+				containsFailGrade = true;
 			}
 		}
 
-		return hasFailGrade;
+		return containsFailGrade;
 	}
 
 	private void createClassPercentages() {
