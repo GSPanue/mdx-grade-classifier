@@ -107,6 +107,7 @@ public class Profile {
       return thirdClassPercentage <= 25;
     }
 
-    return false;
+    // Lower second class and third class profiles are always clear
+    return true;
   }
 }
