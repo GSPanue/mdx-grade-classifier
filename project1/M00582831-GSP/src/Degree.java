@@ -46,7 +46,7 @@ public class Degree {
     list.addAll(year3);
 
     // Find fail grade in list of grades
-    for (Grade grade : list ) {
+    for (Grade grade : list) {
       if (grade.classify() == Classification.Fail) {
         containsFailGrade = true;
       }
