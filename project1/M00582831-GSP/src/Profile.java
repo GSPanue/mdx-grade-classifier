@@ -61,7 +61,7 @@ public class Profile {
         case LowerSecond:
           totalLowerSecondClassGrades++;
           break;
-        case Third:
+        default:
           totalThirdClassGrades++;
       }
     }
