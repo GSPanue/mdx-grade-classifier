@@ -69,7 +69,7 @@ public class Degree {
   public Classification classify() {
     Classification classification = Classification.Discretion;
 
-    if (hasSameClassification()) {
+    if (haveSameClassification()) {
       classification = level5.classify();
     }
     else if (isBetter(level6, level5) && level6.isClear() && isClassAbove(level6, level5)) {
@@ -82,7 +82,7 @@ public class Degree {
     return classification;
   }
 
-  private boolean hasSameClassification() {
+  private boolean haveSameClassification() {
     final Classification LEVEL_5_CLASSIFICATION = level5.classify();
     final Classification LEVEL_6_CLASSIFICATION = level6.classify();
 
