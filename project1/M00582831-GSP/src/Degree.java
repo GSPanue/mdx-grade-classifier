@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Degree {
   // Your additions/changes below this line
-  private List<Classification> classifications = Arrays.asList(Classification.values());
+  private final List<Classification> CLASSIFICATIONS = Arrays.asList(Classification.values());
   private List<Grade> year2;
   private List<Grade> year3;
   private Profile level5;
@@ -94,8 +94,8 @@ public class Degree {
     final Classification PROFILE_2_CLASSIFICATION = profile2.classify();
 
     // Get the index of the classification for both profiles
-    final int PROFILE_1_CLASSIFICATION_INDEX = classifications.indexOf(PROFILE_1_CLASSIFICATION);
-    final int PROFILE_2_CLASSIFICATION_INDEX = classifications.indexOf(PROFILE_2_CLASSIFICATION);
+    final int PROFILE_1_CLASSIFICATION_INDEX = CLASSIFICATIONS.indexOf(PROFILE_1_CLASSIFICATION);
+    final int PROFILE_2_CLASSIFICATION_INDEX = CLASSIFICATIONS.indexOf(PROFILE_2_CLASSIFICATION);
 
     // Return whether profile1 has a better classification than profile2
     return PROFILE_1_CLASSIFICATION_INDEX > PROFILE_2_CLASSIFICATION_INDEX;
@@ -106,8 +106,8 @@ public class Degree {
     final Classification PROFILE_2_CLASSIFICATION = profile2.classify();
 
     // Get the index of the classification for both profiles
-    final int PROFILE_1_CLASSIFICATION_INDEX = classifications.indexOf(PROFILE_1_CLASSIFICATION);
-    final int PROFILE_2_CLASSIFICATION_INDEX = classifications.indexOf(PROFILE_2_CLASSIFICATION);
+    final int PROFILE_1_CLASSIFICATION_INDEX = CLASSIFICATIONS.indexOf(PROFILE_1_CLASSIFICATION);
+    final int PROFILE_2_CLASSIFICATION_INDEX = CLASSIFICATIONS.indexOf(PROFILE_2_CLASSIFICATION);
 
     // Return whether profile1 is one class above profile2
     return (PROFILE_1_CLASSIFICATION_INDEX - 1) == PROFILE_2_CLASSIFICATION_INDEX;
